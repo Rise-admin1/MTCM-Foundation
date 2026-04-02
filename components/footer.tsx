@@ -7,31 +7,31 @@ const footerLinks = {
   about: {
     title: "ABOUT",
     links: [
-      { label: "About MTCM Foundation", href: "#about" },
+      { label: "About MTCM Foundation", href: "/about" },
     ],
   },
   programs: {
     title: "PROGRAMS",
     links: [
-      { label: "Poverty Relief & Welfare Support", href: "#programs" },
-      { label: "Education & ICT Access", href: "#programs" },
-      { label: "Healthcare Services", href: "#programs" },
-      { label: "Water & Sanitation", href: "#programs" },
-      { label: "Agriculture & Food Security", href: "#programs" },
-      { label: "Social Welfare & Community Support", href: "#programs" },
+      { label: "Poverty Relief & Welfare Support", href: "/programs" },
+      { label: "Education & ICT Access", href: "/programs" },
+      { label: "Healthcare Services", href: "/programs" },
+      { label: "Water & Sanitation", href: "/programs" },
+      { label: "Agriculture & Food Security", href: "/programs" },
+      { label: "Social Welfare & Community Support", href: "/programs" },
     ],
   },
   membership: {
     title: "MEMBERSHIP",
     links: [
-      { label: "Membership Application Form", href: "#membership" },
+      { label: "Membership Application Form", href: "/membership" },
     ],
   },
   resources: {
     title: "RESOURCES",
     links: [
-      { label: "Constitution", href: "#resources" },
-      { label: "Accountability", href: "#resources" },
+      { label: "Constitution", href: "/resources" },
+      { label: "Accountability", href: "/resources" },
     ],
   },
 }
@@ -121,7 +121,7 @@ export function Footer() {
                 <span className="text-white font-semibold">Principal Office:</span> Busia County, Kenya
               </div>
               <div>
-                <Link href="#contact" className="text-gray-400 hover:text-[#fe0000] transition-colors">
+                <Link href="/contact" className="text-gray-400 hover:text-[#fe0000] transition-colors">
                   Contact Form
                 </Link>
               </div>

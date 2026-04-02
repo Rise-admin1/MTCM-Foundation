@@ -8,21 +8,21 @@ import { Button } from "@/components/ui/button"
 const navItems = [
   {
     label: "ABOUT",
-    href: "#about",
+    href: "/about",
   },
   {
     label: "PROGRAMS",
-    href: "#programs",
+    href: "/programs",
   },
   {
     label: "MEMBERSHIP",
-    href: "#membership",
+    href: "/membership",
   },
   {
     label: "RESOURCES",
-    href: "#resources",
+    href: "/resources",
   },
-  { label: "CONTACT", href: "#contact" },
+  { label: "CONTACT", href: "/contact" },
 ]
 
 export function Header() {
