@@ -36,7 +36,7 @@ export function ContactSnippetSection() {
             >
               <input type="hidden" name="_subject" value="New message from MTCM contact form" />
               <input type="hidden" name="_captcha" value="false" />
-              <input type="hidden" name="_next" value="https://mtcmfoundation.org/contact/success" />
+              <input type="hidden" name="_next" value="https://www.mtcmfoundation.org/success" />
               <div>
                 <label htmlFor="homeContactName" className="sr-only">
                   Name
