@@ -8,7 +8,7 @@ export function HeroSection() {
     <section className="relative min-h-screen flex items-end overflow-hidden pt-24 pb-16 lg:pt-0 lg:items-end">
       {/* Background Image */}
       <img
-        src="https://placehold.co/1920x1080/png?text=MTCM+Foundation"
+        src="/hero.avif"
         alt="Community impact across Kenya"
         className="absolute inset-0 w-full h-full object-cover"
       />
