@@ -79,7 +79,7 @@ export function AboutFullSection() {
           <div className="relative">
             <div className="aspect-4/3 rounded-lg overflow-hidden shadow-2xl">
               <img
-                src="https://placehold.co/800x600/png?text=MTCM+Foundation"
+                src="/about_full.avif"
                 alt="MTCM foundation"
                 className="w-full h-full object-cover"
               />
