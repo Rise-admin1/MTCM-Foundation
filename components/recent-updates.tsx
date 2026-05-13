@@ -7,19 +7,19 @@ const membershipTypes = [
   {
     title: "ORDINARY MEMBERSHIP",
     excerpt: "Available to individuals subscribing to the constitution.",
-    image: "https://placehold.co/600x500/png?text=Membership",
+    image: "/ordinary.avif",
     href: "#membership",
   },
   {
     title: "CORPORATE MEMBERSHIP",
     excerpt: "Open to organizations supporting the Foundation’s objectives.",
-    image: "https://placehold.co/600x500/png?text=Membership",
+    image: "/corp.avif",
     href: "#membership",
   },
   {
     title: "HONORARY MEMBERSHIP",
     excerpt: "Granted to individuals or entities recognized for their contributions.",
-    image: "https://placehold.co/600x500/png?text=Membership",
+    image: "/honan.avif",
     href: "#membership",
   },
 ]

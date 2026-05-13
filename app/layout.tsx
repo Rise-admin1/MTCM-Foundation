@@ -10,6 +10,10 @@ const mulish = Mulish({
 });
 
 export const metadata: Metadata = {
+  icons: {
+    icon: [{ url: '/mtcm_icon.png', type: 'image/png' }],
+    apple: [{ url: '/mtcm_icon.png', type: 'image/png' }],
+  },
   title: 'MICHAEL TRUFOSA CLARICE MUGENYA FOUNDATION (MTCM)',
   description:
     'The Michael Trufosa Clarice Mugenya Foundation is committed to improving lives through charitable initiatives focused on education, healthcare, poverty relief, and community development.',
