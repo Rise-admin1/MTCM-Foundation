@@ -1,12 +1,9 @@
 import Link from "next/link"
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 
 export default function ContactSuccessPage() {
   return (
     <main className="min-h-screen">
-      <Header />
       <section className="py-16 sm:py-24 bg-background">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-lg shadow-md p-8 text-center space-y-4">
@@ -21,7 +18,6 @@ export default function ContactSuccessPage() {
           </div>
         </div>
       </section>
-      <Footer />
     </main>
   )
 }

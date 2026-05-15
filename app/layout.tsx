@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from 'next'
 import { Mulish } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
+import { Header } from '@/components/header'
+import { Footer } from '@/components/footer'
 
 const mulish = Mulish({ 
   subsets: ["latin"],
@@ -46,8 +48,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${mulish.variable} font-sans antialiased`}>
+        <main className="min-h-screen">
+          <div className="mb-30 sm:mb-0">
+        <Header />
+        </div>
         {children}
+        <Footer />
         <Analytics />
+        </main>
       </body>
     </html>
   )
