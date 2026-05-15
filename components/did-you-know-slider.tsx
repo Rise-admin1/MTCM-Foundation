@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { ChevronLeft, ChevronRight } from "lucide-react"
 
 const slides = [
   {
@@ -34,31 +33,25 @@ const slides = [
 
 export function DidYouKnowSlider() {
   const [currentSlide, setCurrentSlide] = useState(0)
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true)
 
   useEffect(() => {
-    if (!isAutoPlaying) return
-
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length)
     }, 5000)
 
     return () => clearInterval(interval)
-  }, [isAutoPlaying])
+  }, [])
 
   const goToSlide = (index: number) => {
     setCurrentSlide(index)
-    setIsAutoPlaying(false)
   }
 
   const goToPrev = () => {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
-    setIsAutoPlaying(false)
   }
 
   const goToNext = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length)
-    setIsAutoPlaying(false)
   }
 
   return (
@@ -71,14 +64,12 @@ export function DidYouKnowSlider() {
             className="absolute left-4 top-1/2 -translate-y-1/2 p-2 text-gray-400 hover:text-[#fe0000] transition-colors"
             aria-label="Previous slide"
           >
-            <ChevronLeft className="w-8 h-8" />
           </button>
           <button
             onClick={goToNext}
             className="absolute right-4 top-1/2 -translate-y-1/2 p-2 text-gray-400 hover:text-[#fe0000] transition-colors"
             aria-label="Next slide"
           >
-            <ChevronRight className="w-8 h-8" />
           </button>
 
           {/* Slide content */}
