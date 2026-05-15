@@ -26,7 +26,7 @@ const membershipTypes = [
 
 export function RecentUpdates() {
   return (
-    <section className="py-16 sm:py-24 bg-[#f8f8f8]">
+    <section className="py-16 sm:py-24 bg-[#f8f8f8] mt-10 sm:mt-0">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">

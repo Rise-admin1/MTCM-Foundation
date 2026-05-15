@@ -48,14 +48,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${mulish.variable} font-sans antialiased`}>
-        <main className="min-h-screen">
-          <div className="mb-30 sm:mb-0">
         <Header />
-        </div>
         {children}
         <Footer />
         <Analytics />
-        </main>
       </body>
     </html>
   )

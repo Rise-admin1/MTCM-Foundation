@@ -16,7 +16,7 @@ export function ProgramsSection() {
   ]
 
   return (
-    <section className="py-16 sm:py-24 bg-background">
+    <section className="py-16 sm:py-24 bg-background mt-10 sm:mt-0">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-4 mb-12">
           <h2 className="text-xl sm:text-2xl font-bold text-[#282828] uppercase tracking-wider">
