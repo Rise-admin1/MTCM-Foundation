@@ -118,7 +118,7 @@ export function Footer() {
                 <div className="text-white font-semibold">Primary Address:</div> Mugenya Farm, Nakhasiko, Busia, Kenya
               </div>
               <div>
-                <div className="text-white font-semibold">Secondary:</div> 317 Runda Grove, Runda, Nairobi, Kenya
+                <div className="text-white font-semibold">Secondary Address:</div> 317 Runda Grove, Runda, Nairobi, Kenya
               </div>
               <div>
                 {/* <Link href="/contact" className="text-gray-400 hover:text-[#fe0000] transition-colors">
