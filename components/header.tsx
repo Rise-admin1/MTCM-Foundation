@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import Link from "next/link"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -32,8 +33,16 @@ export function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#282828]/90 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          {/* Header Title */}
-          <Link href="/" className="shrink-0">
+          {/* Logo + title */}
+          <Link href="/" className="shrink-0 flex items-center gap-2 sm:gap-3">
+            <Image
+              src="/mtcm_icon.png"
+              alt=""
+              width={96}
+              height={96}
+              className="h-12 w-auto object-contain sm:h-14 md:h-16 shrink-0"
+              priority
+            />
             <div className="flex flex-col leading-tight">
               <span className="text-white font-bold text-base sm:text-lg">MICHAEL TRUFOSA CLARICE</span>
               <span className="text-white font-bold text-sm sm:text-base -mt-1">MUGENYA FOUNDATION</span>

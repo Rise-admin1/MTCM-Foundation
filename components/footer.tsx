@@ -115,10 +115,10 @@ export function Footer() {
             <h3 className="font-bold text-lg mb-6">CONTACT</h3>
             <div className="space-y-3 text-sm text-gray-400">
               <div>
-                <span className="text-white font-semibold">Registered Office:</span> Nairobi, Kenya
+                <span className="text-white font-semibold">Primary Address:</span>Mugenya Farm, Nakhasiko, Busia County, Kenya
               </div>
               <div>
-                <span className="text-white font-semibold">Principal Office:</span> Busia County, Kenya
+                <span className="text-white font-semibold">Secondary:</span> 317 Runda Grove, Runda, Nairobi, Kenya
               </div>
               <div>
                 <Link href="/contact" className="text-gray-400 hover:text-[#fe0000] transition-colors">
