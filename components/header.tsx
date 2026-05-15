@@ -36,7 +36,7 @@ export function Header() {
           {/* Logo + title */}
           <Link href="/" className="shrink-0 flex items-center gap-2 sm:gap-3">
             <Image
-              src="/mtcm_icon.png"
+              src="/mtcm_logo.avif"
               alt=""
               width={96}
               height={96}
