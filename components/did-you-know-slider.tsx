@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 
 const slides = [
   {
@@ -61,15 +62,17 @@ export function DidYouKnowSlider() {
           {/* Navigation arrows */}
           <button
             onClick={goToPrev}
-            className="absolute left-4 top-1/2 -translate-y-1/2 p-2 text-gray-400 hover:text-[#fe0000] transition-colors"
+            className="absolute left-0 sm:left-2 top-1/2 -translate-y-1/2 p-2 text-gray-400 hover:text-[#fe0000] transition-colors"
             aria-label="Previous slide"
           >
+            <ChevronLeft className="h-6 w-6" />
           </button>
           <button
             onClick={goToNext}
-            className="absolute right-4 top-1/2 -translate-y-1/2 p-2 text-gray-400 hover:text-[#fe0000] transition-colors"
+            className="absolute right-0 sm:right-2 top-1/2 -translate-y-1/2 p-2 text-gray-400 hover:text-[#fe0000] transition-colors"
             aria-label="Next slide"
           >
+            <ChevronRight className="h-6 w-6" />
           </button>
 
           {/* Slide content */}
