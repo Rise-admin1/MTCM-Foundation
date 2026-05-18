@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-end overflow-hidden pt-24 pb-16 lg:pt-0 lg:items-end">
+    <section className="relative min-h-screen flex items-end overflow-hidden pt-28 sm:pt-32 pb-16">
       {/* Background Image */}
       <img
         src="/hero.avif"
