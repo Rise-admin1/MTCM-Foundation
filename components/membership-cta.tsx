@@ -18,7 +18,7 @@ export function MembershipCta() {
             asChild
             className="bg-[#fe0000] hover:bg-[#cc0000] text-white font-semibold px-8"
           >
-            <Link href="#membership">Apply for Membership</Link>
+            <Link href="/membership-application">Become a Member</Link>
           </Button>
         </div>
       </div>

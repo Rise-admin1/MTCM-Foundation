@@ -19,9 +19,10 @@ export function ProgramsSection() {
     <section className="py-16 sm:py-24 bg-background mt-10 sm:mt-0">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-4 mb-12 mt-30">
-          <h2 className="text-xl sm:text-2xl font-bold text-[#282828] uppercase tracking-wider">
-            Programs Overview
-          </h2>
+         
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#282828] leading-tight">
+          Programs Overview
+            </h2>
         </div>
 
         <p className="text-foreground text-base sm:text-lg leading-relaxed mb-10 max-w-3xl">

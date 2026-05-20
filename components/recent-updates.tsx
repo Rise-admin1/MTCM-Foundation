@@ -8,19 +8,19 @@ const membershipTypes = [
     title: "ORDINARY MEMBERSHIP",
     excerpt: "Available to individuals subscribing to the constitution.",
     image: "/ordinary.avif",
-    href: "#membership",
+    href: "/membership-application",
   },
   {
     title: "CORPORATE MEMBERSHIP",
     excerpt: "Open to organizations supporting the Foundation’s objectives.",
     image: "/corp.avif",
-    href: "#membership",
+    href: "/membership-application",
   },
   {
     title: "HONORARY MEMBERSHIP",
     excerpt: "Granted to individuals or entities recognized for their contributions.",
     image: "/honan.avif",
-    href: "#membership",
+    href: "/membership-application",
   },
 ]
 
@@ -30,16 +30,10 @@ export function RecentUpdates() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 mt-30">
-          <h2 className="text-xl sm:text-2xl font-bold text-[#282828] uppercase tracking-wider">
-            Membership
-          </h2>
-          <Button
-            asChild
-            variant="outline"
-            className="border-[#fe0000] text-[#fe0000] hover:bg-[#fe0000] hover:text-white"
-          >
-            <Link href="#membership">More +</Link>
-          </Button>
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#282828] leading-tight">
+          Membership
+            </h2>
+         
         </div>
 
         <p className="text-foreground text-base sm:text-lg mb-12 max-w-3xl">

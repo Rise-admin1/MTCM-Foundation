@@ -46,13 +46,15 @@ export function ContactSnippetSection() {
   }
 
   return (
-    <section id="contact" className="py-16 sm:py-24 bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 sm:mt-10 md:mt-30">
-        <h2 className="text-xl sm:text-6xl font-bold text-[#282828] uppercase tracking-wider">
-          CONTACT
-        </h2>
+    <section id="contact" className="py-16 sm:py-24 bg-background mt-10 sm:mt-0">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center gap-4 mb-12 mt-30">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#282828] leading-tight">
+            Contact Us
+          </h2>
+        </div>
 
-        <div className="grid lg:grid-cols-2 gap-10 items-start mt-10">
+        <div className="grid lg:grid-cols-2 gap-10 items-start">
           <div className="space-y-6">
             <div>
               <p className="text-foreground text-base sm:text-3xl leading-relaxed max-w-3xl">

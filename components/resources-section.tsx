@@ -1,5 +1,7 @@
 "use client"
 
+import { FormEvent, useState } from "react"
+import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import {
   Dialog,
@@ -19,13 +21,130 @@ import {
 } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
 
+const RESOURCES_API_URL = "https://survey.dubaianalytica.com/api/mtcm/resources"
+
+type DocumentType = "constitution" | "financial-records"
+
+function ResourceRequestForm({
+  idPrefix,
+  defaultDocumentType,
+}: {
+  idPrefix: string
+  defaultDocumentType: DocumentType
+}) {
+  const router = useRouter()
+  const [documentType, setDocumentType] = useState<DocumentType>(defaultDocumentType)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    setError(null)
+    setIsSubmitting(true)
+
+    const formData = new FormData(event.currentTarget)
+    const name = formData.get("name")?.toString().trim() ?? ""
+    const email = formData.get("email")?.toString().trim() ?? ""
+    const message = formData.get("message")?.toString().trim() ?? ""
+
+    try {
+      const response = await fetch(RESOURCES_API_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          documentType,
+          message,
+        }),
+      })
+
+      if (!response.ok) {
+        throw new Error("Failed to submit request")
+      }
+
+      router.push("/success")
+    } catch {
+      setError("Something went wrong. Please try again.")
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-4">
+      <div className="space-y-2">
+        <label htmlFor={`${idPrefix}-name`} className="text-sm font-medium text-[#282828]">
+          Name
+        </label>
+        <Input id={`${idPrefix}-name`} name="name" placeholder="Enter your full name" required />
+      </div>
+
+      <div className="space-y-2">
+        <label htmlFor={`${idPrefix}-email`} className="text-sm font-medium text-[#282828]">
+          Email
+        </label>
+        <Input
+          id={`${idPrefix}-email`}
+          name="email"
+          type="email"
+          placeholder="Enter your email address"
+          required
+        />
+      </div>
+
+      <div className="space-y-2">
+        <label htmlFor={`${idPrefix}-document-type`} className="text-sm font-medium text-[#282828]">
+          Document type
+        </label>
+        <Select
+          value={documentType}
+          onValueChange={(value) => setDocumentType(value as DocumentType)}
+        >
+          <SelectTrigger id={`${idPrefix}-document-type`} className="w-full">
+            <SelectValue placeholder="Select a document type" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="constitution">Constitution</SelectItem>
+            <SelectItem value="financial-records">Financial records</SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
+
+      <div className="space-y-2">
+        <label htmlFor={`${idPrefix}-message`} className="text-sm font-medium text-[#282828]">
+          Message
+        </label>
+        <Textarea
+          id={`${idPrefix}-message`}
+          name="message"
+          placeholder="Write your message"
+          className="min-h-24"
+        />
+      </div>
+
+      {error && <p className="text-sm text-[#fe0000]">{error}</p>}
+
+      <Button
+        type="submit"
+        disabled={isSubmitting}
+        className="w-full bg-[#fe0000] hover:bg-[#cc0000] text-white disabled:opacity-70"
+      >
+        {isSubmitting ? "Submitting..." : "Submit request"}
+      </Button>
+    </form>
+  )
+}
+
 export function ResourcesSection() {
   return (
-    <section id="resources" className="min-h-screen py-16 sm:py-24 bg-[#282828] pt-10 sm:pt-0 flex items-center">
+    <section id="resources" className="min-h-screen py-16 sm:py-24 bg-[#282828] mt-10 sm:mt-0">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="text-center mb-10 sm:mb-12">
-          <h2 className="text-xl sm:text-2xl font-bold text-white uppercase tracking-wider">
-            RESOURCES
+        <div className="flex items-center gap-4 mb-12 mt-30">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#ffffff] leading-tight">
+            Resources
           </h2>
         </div>
 
@@ -51,67 +170,7 @@ export function ResourcesSection() {
                 </DialogDescription>
               </DialogHeader>
 
-              <form
-                className="space-y-4"
-                action="https://formsubmit.co/hello@mtcmfoundation.org"
-                method="POST"
-              >
-                <input type="hidden" name="_subject" value="New resource request from MTCM website" />
-                <input type="hidden" name="_captcha" value="false" />
-                <input type="hidden" name="_next" value="https://www.mtcmfoundation.org/success" />
-                <div className="space-y-2">
-                  <label htmlFor="resource-name" className="text-sm font-medium text-[#282828]">
-                    Name
-                  </label>
-                  <Input id="resource-name" name="name" placeholder="Enter your full name" />
-                </div>
-
-                <div className="space-y-2">
-                  <label htmlFor="resource-email" className="text-sm font-medium text-[#282828]">
-                    Email
-                  </label>
-                  <Input
-                    id="resource-email"
-                    name="email"
-                    type="email"
-                    placeholder="Enter your email address"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <label
-                    htmlFor="resource-document-type"
-                    className="text-sm font-medium text-[#282828]"
-                  >
-                    Document type
-                  </label>
-                  <Select name="documentType">
-                    <SelectTrigger id="resource-document-type" className="w-full">
-                      <SelectValue placeholder="Select a document type" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="constitution">Constitution</SelectItem>
-                      <SelectItem value="financial-records">Financial records</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <div className="space-y-2">
-                  <label htmlFor="resource-message" className="text-sm font-medium text-[#282828]">
-                    Message
-                  </label>
-                  <Textarea
-                    id="resource-message"
-                    name="message"
-                    placeholder="Write your message"
-                    className="min-h-24"
-                  />
-                </div>
-
-                <Button type="submit" className="w-full bg-[#fe0000] hover:bg-[#cc0000] text-white">
-                  Submit request
-                </Button>
-              </form>
+              <ResourceRequestForm idPrefix="resource" defaultDocumentType="constitution" />
             </DialogContent>
           </Dialog>
 
@@ -136,80 +195,7 @@ export function ResourcesSection() {
                 </DialogDescription>
               </DialogHeader>
 
-              <form
-                className="space-y-4"
-                action="https://formsubmit.co/hello@mtcmfoundation.org"
-                method="POST"
-              >
-                <input type="hidden" name="_subject" value="New resource request from MTCM website" />
-                <input type="hidden" name="_captcha" value="false" />
-                <input type="hidden" name="_next" value="https://www.mtcmfoundation.org/success" />
-                <div className="space-y-2">
-                  <label
-                    htmlFor="resource-name-accountability"
-                    className="text-sm font-medium text-[#282828]"
-                  >
-                    Name
-                  </label>
-                  <Input
-                    id="resource-name-accountability"
-                    name="name"
-                    placeholder="Enter your full name"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <label
-                    htmlFor="resource-email-accountability"
-                    className="text-sm font-medium text-[#282828]"
-                  >
-                    Email
-                  </label>
-                  <Input
-                    id="resource-email-accountability"
-                    name="email"
-                    type="email"
-                    placeholder="Enter your email address"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <label
-                    htmlFor="resource-document-type-accountability"
-                    className="text-sm font-medium text-[#282828]"
-                  >
-                    Document type
-                  </label>
-                  <Select name="documentType" defaultValue="financial-records">
-                    <SelectTrigger id="resource-document-type-accountability" className="w-full">
-                      <SelectValue placeholder="Select a document type" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="constitution">Constitution</SelectItem>
-                      <SelectItem value="financial-records">Financial records</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <div className="space-y-2">
-                  <label
-                    htmlFor="resource-message-accountability"
-                    className="text-sm font-medium text-[#282828]"
-                  >
-                    Message
-                  </label>
-                  <Textarea
-                    id="resource-message-accountability"
-                    name="message"
-                    placeholder="Write your message"
-                    className="min-h-24"
-                  />
-                </div>
-
-                <Button type="submit" className="w-full bg-[#fe0000] hover:bg-[#cc0000] text-white">
-                  Submit request
-                </Button>
-              </form>
+              <ResourceRequestForm idPrefix="resource-accountability" defaultDocumentType="financial-records" />
             </DialogContent>
           </Dialog>
         </div>
@@ -217,4 +203,3 @@ export function ResourcesSection() {
     </section>
   )
 }
-

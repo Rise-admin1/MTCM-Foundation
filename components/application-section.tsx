@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 
 const MEMBERSHIP_API_URL = "https://survey.dubaianalytica.com/api/mtcm/membership-enquiry"
 
-export function NewsletterSection() {
+export function ApplicationSection() {
   const [fullName, setFullName] = useState("")
   const [email, setEmail] = useState("")
   const [phone, setPhone] = useState("")
@@ -77,21 +77,23 @@ export function NewsletterSection() {
   }
 
   return (
-    <section id="membership" className="py-16 sm:py-24 bg-[#f0f0f0]">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-sm font-bold text-[#fe0000] uppercase tracking-wider mb-4">
-          Membership Application
-        </h2>
+    <section id="application" className="min-h-screen py-16 sm:py-24 bg-[#f0f0f0] mt-10 sm:mt-0">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center gap-4 mb-12 mt-30">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#282828] leading-tight">
+            Membership Application
+          </h2>
+        </div>
 
+        <div className="max-w-3xl mx-auto">
         {submitted ? (
-          <div className="bg-green-50 border border-green-200 rounded-lg p-6">
+          <div className="bg-green-50 border border-green-200 rounded-lg p-6 text-center">
             <p className="text-green-800 font-medium">
               Your application has been received and will be reviewed by the Board.
             </p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-5 text-left">
-            {/* Personal Details */}
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
                 <label htmlFor="fullName" className="sr-only">
@@ -154,7 +156,6 @@ export function NewsletterSection() {
               </div>
             </div>
 
-            {/* Membership Type */}
             <div>
               <label htmlFor="membershipType" className="sr-only">
                 Membership Type
@@ -174,7 +175,6 @@ export function NewsletterSection() {
               </select>
             </div>
 
-            {/* Proposer Details */}
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
                 <label htmlFor="proposerName" className="sr-only">
@@ -206,7 +206,6 @@ export function NewsletterSection() {
               </div>
             </div>
 
-            {/* Seconder Details */}
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
                 <label htmlFor="seconderName" className="sr-only">
@@ -238,7 +237,6 @@ export function NewsletterSection() {
               </div>
             </div>
 
-            {/* Declaration */}
             <div className="flex items-start gap-3 text-left">
               <input
                 type="checkbox"
@@ -266,6 +264,7 @@ export function NewsletterSection() {
             </div>
           </form>
         )}
+        </div>
       </div>
     </section>
   )
