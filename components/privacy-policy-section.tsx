@@ -1,10 +1,14 @@
 export function PrivacyPolicySection() {
   return (
     <section className="py-16 sm:py-24 bg-background mt-10 sm:mt-0">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 text-foreground leading-relaxed">
-        <h1 className="text-2xl sm:text-3xl font-bold text-[#282828] uppercase">
-          Privacy Policy
-        </h1>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center gap-4 mb-12 mt-30">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#282828] leading-tight">
+            Privacy Policy
+          </h1>
+        </div>
+
+        <div className="max-w-4xl space-y-6 text-foreground leading-relaxed">
 
         <h2 className="text-xl sm:text-2xl font-semibold text-[#282828]">
           Michael Trufosa Clarice Mugenya Foundation (MTCM Foundation)
@@ -303,6 +307,7 @@ export function PrivacyPolicySection() {
           <br />
           Website: www.mtcmfoundation.org
         </p>
+        </div>
       </div>
     </section>
   )
