@@ -1,24 +1,49 @@
 "use client"
 
-import { useEffect } from "react"
+import { FormEvent, useState } from "react"
 import { useRouter } from "next/navigation"
-import { useForm, ValidationError } from "@formspree/react"
 import { Button } from "@/components/ui/button"
 
-const FORMSPREE_FORM_ID = "mredevzl"
+const CONTACT_API_URL = "https://survey.dubaianalytica.com/api/mtcm/contact-us"
 
 const inputClassName =
   "w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#fe0000] focus:border-transparent text-foreground"
 
 export function ContactSnippetSection() {
   const router = useRouter()
-  const [state, handleSubmit] = useForm(FORMSPREE_FORM_ID)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
-  useEffect(() => {
-    if (state.succeeded) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    setError(null)
+    setIsSubmitting(true)
+
+    const formData = new FormData(event.currentTarget)
+    const name = formData.get("name")?.toString().trim() ?? ""
+    const email = formData.get("email")?.toString().trim() ?? ""
+    const body = formData.get("body")?.toString().trim() ?? ""
+
+    try {
+      const response = await fetch(CONTACT_API_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, body }),
+      })
+
+      if (!response.ok) {
+        throw new Error("Failed to send message")
+      }
+
       router.push("/success")
+    } catch {
+      setError("Something went wrong. Please try again.")
+    } finally {
+      setIsSubmitting(false)
     }
-  }, [state.succeeded, router])
+  }
 
   return (
     <section id="contact" className="py-16 sm:py-24 bg-background">
@@ -51,8 +76,6 @@ export function ContactSnippetSection() {
           <div className="bg-white rounded-lg shadow-md p-8">
             <h3 className="text-lg font-bold text-[#282828] mb-4">Contact Form</h3>
             <form onSubmit={handleSubmit} className="space-y-4">
-              <input type="hidden" name="_subject" value="New message from MTCM contact form" />
-
               <div>
                 <label htmlFor="homeContactName" className="sr-only">
                   Name
@@ -64,12 +87,6 @@ export function ContactSnippetSection() {
                   placeholder="Name *"
                   required
                   className={inputClassName}
-                />
-                <ValidationError
-                  prefix="Name"
-                  field="name"
-                  errors={state.errors}
-                  className="text-sm text-[#fe0000] mt-1"
                 />
               </div>
 
@@ -85,12 +102,6 @@ export function ContactSnippetSection() {
                   required
                   className={inputClassName}
                 />
-                <ValidationError
-                  prefix="Email"
-                  field="email"
-                  errors={state.errors}
-                  className="text-sm text-[#fe0000] mt-1"
-                />
               </div>
 
               <div>
@@ -99,28 +110,22 @@ export function ContactSnippetSection() {
                 </label>
                 <textarea
                   id="homeContactMessage"
-                  name="message"
+                  name="body"
                   placeholder="Message *"
                   required
                   rows={5}
                   className={inputClassName}
                 />
-                <ValidationError
-                  prefix="Message"
-                  field="message"
-                  errors={state.errors}
-                  className="text-sm text-[#fe0000] mt-1"
-                />
               </div>
 
-              <ValidationError errors={state.errors} className="text-sm text-[#fe0000]" />
+              {error && <p className="text-sm text-[#fe0000]">{error}</p>}
 
               <Button
                 type="submit"
-                disabled={state.submitting}
+                disabled={isSubmitting}
                 className="bg-[#fe0000] hover:bg-[#cc0000] text-white font-semibold px-8 disabled:opacity-70"
               >
-                {state.submitting ? "Submitting..." : "Submit"}
+                {isSubmitting ? "Submitting..." : "Submit"}
               </Button>
             </form>
           </div>

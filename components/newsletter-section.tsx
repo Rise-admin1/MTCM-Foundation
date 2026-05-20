@@ -3,6 +3,8 @@
 import { useState, type FormEvent } from "react"
 import { Button } from "@/components/ui/button"
 
+const MEMBERSHIP_API_URL = "https://survey.dubaianalytica.com/api/mtcm/membership-enquiry"
+
 export function NewsletterSection() {
   const [fullName, setFullName] = useState("")
   const [email, setEmail] = useState("")
@@ -18,22 +20,59 @@ export function NewsletterSection() {
 
   const [declaration, setDeclaration] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
+    setError(null)
+
     if (
-      fullName &&
-      email &&
-      phone &&
-      address &&
-      membershipType &&
-      proposerName &&
-      proposerContact &&
-      seconderName &&
-      seconderContact &&
-      declaration
+      !fullName ||
+      !email ||
+      !phone ||
+      !address ||
+      !membershipType ||
+      !proposerName ||
+      !proposerContact ||
+      !seconderName ||
+      !seconderContact ||
+      !declaration
     ) {
+      return
+    }
+
+    setIsSubmitting(true)
+
+    try {
+      const response = await fetch(MEMBERSHIP_API_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          fullName,
+          email,
+          phone,
+          address,
+          membershipType,
+          proposerName,
+          proposerContact,
+          seconderName,
+          seconderContact,
+          declaration,
+        }),
+      })
+
+      if (!response.ok) {
+        throw new Error("Failed to submit application")
+      }
+
       setSubmitted(true)
+    } catch {
+      setError("Something went wrong. Please try again.")
+    } finally {
+      setIsSubmitting(false)
     }
   }
 
@@ -214,12 +253,15 @@ export function NewsletterSection() {
               </label>
             </div>
 
+            {error && <p className="text-sm text-[#fe0000] text-center">{error}</p>}
+
             <div className="flex justify-center pt-2">
               <Button
                 type="submit"
-                className="bg-[#fe0000] hover:bg-[#cc0000] text-white font-semibold px-8"
+                disabled={isSubmitting}
+                className="bg-[#fe0000] hover:bg-[#cc0000] text-white font-semibold px-8 disabled:opacity-70"
               >
-                Submit Application
+                {isSubmitting ? "Submitting..." : "Submit Application"}
               </Button>
             </div>
           </form>
