@@ -6,7 +6,7 @@ export function AboutFullSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
-          <div className="space-y-6">
+          <div className="space-y-6 mt-30">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#282828] leading-tight">
               About MTCM Foundation
             </h2>

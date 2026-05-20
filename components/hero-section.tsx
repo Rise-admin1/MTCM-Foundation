@@ -58,14 +58,14 @@ export function HeroSection() {
                 asChild
                 className="bg-[#fe0000] hover:bg-[#cc0000] text-white font-bold"
               >
-                <Link href="#membership">Become a Member</Link>
+                <Link href="/membership">Become a Member</Link>
               </Button>
               <Button
                 asChild
                 variant="outline"
                 className="bg-white/10 text-white"
               >
-                <Link href="#contact">Partner With Us</Link>
+                <Link href="/contact">Partner With Us</Link>
               </Button>
             </div>
           </div>

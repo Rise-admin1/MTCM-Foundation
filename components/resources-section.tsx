@@ -21,20 +21,20 @@ import { Textarea } from "@/components/ui/textarea"
 
 export function ResourcesSection() {
   return (
-    <section id="resources" className="py-16 sm:py-24 bg-[#282828] mt-10 sm:mt-0">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-12">
+    <section id="resources" className="min-h-screen py-16 sm:py-24 bg-[#282828] pt-10 sm:pt-0 flex items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="text-center mb-10 sm:mb-12">
           <h2 className="text-xl sm:text-2xl font-bold text-white uppercase tracking-wider">
             RESOURCES
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 max-w-4xl lg:max-w-5xl mx-auto w-full">
           <Dialog>
             <DialogTrigger asChild>
               <button
                 type="button"
-                className="bg-white rounded-lg shadow-md p-8 hover:shadow-xl transition-shadow text-left"
+                className="bg-white rounded-lg shadow-md p-6 sm:p-8 hover:shadow-xl transition-shadow text-left w-full h-full min-h-[160px] sm:min-h-[180px]"
               >
                 <h3 className="text-lg font-bold text-[#282828] mb-3">Constitution</h3>
                 <p className="text-sm text-foreground leading-relaxed">
@@ -119,7 +119,7 @@ export function ResourcesSection() {
             <DialogTrigger asChild>
               <button
                 type="button"
-                className="bg-white rounded-lg shadow-md p-8 hover:shadow-xl transition-shadow text-left"
+                className="bg-white rounded-lg shadow-md p-6 sm:p-8 hover:shadow-xl transition-shadow text-left w-full h-full min-h-[160px] sm:min-h-[180px]"
               >
                 <h3 className="text-lg font-bold text-[#282828] mb-3">Accountability</h3>
                 <p className="text-sm text-foreground leading-relaxed">

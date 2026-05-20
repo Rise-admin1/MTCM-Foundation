@@ -69,7 +69,7 @@ export function Header() {
               asChild
               className="hidden sm:flex bg-[#fe0000] hover:bg-[#cc0000] text-white font-bold text-xs uppercase tracking-wider"
             >
-              <Link href="#membership">Become a Member</Link>
+              <Link href="/membership">Become a Member</Link>
             </Button>
 
             {/* Mobile menu button */}
@@ -102,7 +102,7 @@ export function Header() {
               asChild
               className="w-full bg-[#fe0000] hover:bg-[#cc0000] text-white font-bold text-xs uppercase tracking-wider mt-4"
             >
-              <Link href="#membership">Become a Member</Link>
+              <Link href="/membership">Become a Member</Link>
             </Button>
           </div>
         </div>
