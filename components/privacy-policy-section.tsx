@@ -299,11 +299,9 @@ export function PrivacyPolicySection() {
         <p>
           <strong>Michael Trufosa Clarice Mugenya Foundation (MTCM Foundation)</strong>
           <br />
-          Email: info@mtcmfoundation.com
+          Email: info@mtcmfoundation.org
           <br />
-          Phone: +254724731006
-          <br />
-          Website: mtcmfoundation.com
+          Website: www.mtcmfoundation.org
         </p>
       </div>
     </section>
