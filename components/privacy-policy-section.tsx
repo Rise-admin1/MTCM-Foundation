@@ -10,12 +10,6 @@ export function PrivacyPolicySection() {
 
         <div className="max-w-4xl space-y-6 text-foreground leading-relaxed">
 
-        <h2 className="text-xl sm:text-2xl font-semibold text-[#282828]">
-          Michael Trufosa Clarice Mugenya Foundation (MTCM Foundation)
-        </h2>
-
-        <h3 className="text-lg font-bold text-[#282828]">OUR PRIVACY POLICY</h3>
-
         <p>
           At the Michael Trufosa Clarice Mugenya Foundation (MTCM Foundation), we are committed to protecting and respecting your privacy.
           This Privacy Policy explains how we collect, use, store, process, and protect your personal information when you interact with us through our programmes,
