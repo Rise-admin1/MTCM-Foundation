@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 export function TermsConditionsSection() {
   return (
     <section className="py-16 sm:py-24 bg-background mt-10 sm:mt-0">
@@ -242,8 +244,14 @@ export function TermsConditionsSection() {
         </ul>
 
         <p>
-          All users, volunteers, staff, and partners are required to comply with the Foundation&apos;s
-          Safeguarding &amp; Child Protection Policy.
+          All users, volunteers, staff, and partners are required to comply with the Foundation&apos;s{" "}
+          <Link
+            href="/safeguarding-policy"
+            className="text-[#fe0000] hover:underline"
+          >
+            Safeguarding &amp; Child Protection Policy
+          </Link>
+          .
         </p>
 
         <p>
@@ -268,7 +276,14 @@ export function TermsConditionsSection() {
         <h3 className="text-lg font-bold text-[#282828] pt-4">8. PRIVACY &amp; DATA PROTECTION</h3>
 
         <p>
-          Use of the Foundation&apos;s platforms is also governed by the Foundation&apos;s Privacy Policy.
+          Use of the Foundation&apos;s platforms is also governed by the Foundation&apos;s{" "}
+          <Link
+            href="/privacy-policy"
+            className="text-[#fe0000] hover:underline"
+          >
+            Privacy Policy
+          </Link>
+          .
         </p>
 
         <p>
