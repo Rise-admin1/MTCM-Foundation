@@ -6,7 +6,7 @@ export function ProgramsSection() {
     { title: "Education Support", description: "Support through school fees, learning materials, and ICT access." },
     { title: "Healthcare Support", description: "Facilitating access to medical services and supplies." },
     { title: "Water & Sanitation", description: "Implementation of clean water and sanitation initiatives." },
-    { title: "Agriculture & Food Security", description: "Promotion of sustainable farming and food production." },
+    { title: "Environment, Agriculture & Food Security", description: "Promotion of sustainable farming and food production." },
     { title: "Rehabilitation Support", description: "Support for drug and alcohol rehabilitation efforts." },
     { title: "Social Welfare", description: "Support for vulnerable populations including the elderly and persons with disabilities." },
     { title: "Grants & Donations", description: "Providing assistance to deserving causes." },

@@ -22,7 +22,7 @@ const slides = [
     description: "Implementation of clean water and sanitation initiatives.",
   },
   {
-    heading: "Agriculture & Food Security",
+    heading: "Environment, Agriculture & Food Security",
     description: "Promotion of sustainable farming and food production.",
   },
   {

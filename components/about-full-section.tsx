@@ -63,7 +63,7 @@ export function AboutFullSection() {
                   "Education & ICT Access",
                   "Healthcare Services",
                   "Water & Sanitation",
-                  "Agriculture & Food Security",
+                  "Environment, Agriculture & Food Security",
                   "Social Welfare & Community Support",
                 ].map((label) => (
                   <div key={label} className="flex items-start gap-2 text-foreground text-base">

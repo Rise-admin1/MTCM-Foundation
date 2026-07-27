@@ -17,7 +17,7 @@ const footerLinks = {
       { label: "Education & ICT Access", href: "/programs" },
       { label: "Healthcare Services", href: "/programs" },
       { label: "Water & Sanitation", href: "/programs" },
-      { label: "Agriculture & Food Security", href: "/programs" },
+      { label: "Environment, Agriculture & Food Security", href: "/programs" },
       { label: "Social Welfare & Community Support", href: "/programs" },
     ],
   },

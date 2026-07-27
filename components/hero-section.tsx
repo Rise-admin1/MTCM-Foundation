@@ -38,7 +38,7 @@ export function HeroSection() {
                 <li>Education & ICT Access</li>
                 <li>Healthcare Services</li>
                 <li>Water & Sanitation</li>
-                <li>Agriculture & Food Security</li>
+                <li>Environment, Agriculture & Food Security</li>
                 <li>Social Welfare & Community Support</li>
               </ul>
             </div>
