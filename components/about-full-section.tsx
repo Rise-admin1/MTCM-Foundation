@@ -1,5 +1,7 @@
 "use client"
 
+const CHAIRMAN_VIDEO_URL = "https://s3.ap-south-1.amazonaws.com/fpfplatform.funyula.com/WhatsApp+Video+2026-07-29+at+1.00.01+PM.mp4"
+
 export function AboutFullSection() {
   return (
     <section id="about" className="py-16 sm:py-24 bg-background mt-10 sm:mt-0">
@@ -14,36 +16,6 @@ export function AboutFullSection() {
             <p className="text-foreground text-base sm:text-lg leading-relaxed">
               The Michael Trufosa Clarice Mugenya Foundation (MTCM Foundation) is a non-governmental organization established under the laws of Kenya. The organization operates from Nairobi with a principal office in Busia County.
             </p>
-
-            <div className="space-y-2">
-              <p className="font-semibold">Main Objective</p>
-              <ul className="list-disc pl-5 space-y-1 text-foreground text-base sm:text-lg leading-relaxed">
-                <li>Relief of poverty</li>
-                <li>Advancement of education</li>
-                <li>Promotion of health</li>
-                <li>Social welfare and community empowerment</li>
-              </ul>
-            </div>
-
-            <div className="space-y-2">
-              <p className="font-semibold">Specific Objectives</p>
-              <p className="text-foreground leading-relaxed">
-                The Foundation undertakes initiatives including:
-              </p>
-              <ul className="list-disc pl-5 space-y-1 text-foreground text-base sm:text-lg leading-relaxed">
-                <li>Poverty alleviation and welfare services</li>
-                <li>Clean water and sanitation projects</li>
-                <li>Access to healthcare services and supplies</li>
-                <li>Educational support and ICT access</li>
-                <li>Promotion of sustainable agriculture</li>
-                <li>Rehabilitation support programs</li>
-                <li>Assistance to vulnerable groups including the elderly, orphans, and persons with disabilities</li>
-                <li>Food aid and shelter provision</li>
-                <li>Grants and donations</li>
-                <li>Advocacy and engagement with stakeholders</li>
-                <li>Resource mobilization and partnerships</li>
-              </ul>
-            </div>
 
             <div className="space-y-2">
               <p className="font-semibold">Governance</p>
@@ -88,8 +60,54 @@ export function AboutFullSection() {
             <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-[#fe0000]/10 rounded-lg -z-10" />
           </div>
         </div>
+
+        <div className="mt-12 sm:mt-16 space-y-6">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#282828] leading-tight">
+            A Message from The Chairman
+          </h2>
+
+          <video
+            src={CHAIRMAN_VIDEO_URL}
+            controls
+            playsInline
+            className="w-full aspect-video rounded-lg"
+          />
+
+          <div className="space-y-2">
+            <h3 className="text-xl sm:text-2xl font-semibold text-[#282828]">
+              Main Objective
+            </h3>
+            <ul className="list-disc pl-5 space-y-1 text-foreground text-base sm:text-lg leading-relaxed">
+              <li>Relief of poverty</li>
+              <li>Advancement of education</li>
+              <li>Promotion of health</li>
+              <li>Social welfare and community empowerment</li>
+            </ul>
+          </div>
+
+          <div className="space-y-2">
+            <h3 className="text-xl sm:text-2xl font-semibold text-[#282828]">
+              Specific Objectives
+            </h3>
+            <p className="text-foreground leading-relaxed">
+              The Foundation undertakes initiatives including:
+            </p>
+            <ul className="list-disc pl-5 space-y-1 text-foreground text-base sm:text-lg leading-relaxed">
+              <li>Poverty alleviation and welfare services</li>
+              <li>Clean water and sanitation projects</li>
+              <li>Access to healthcare services and supplies</li>
+              <li>Educational support and ICT access</li>
+              <li>Promotion of sustainable agriculture</li>
+              <li>Rehabilitation support programs</li>
+              <li>Assistance to vulnerable groups including the elderly, orphans, and persons with disabilities</li>
+              <li>Food aid and shelter provision</li>
+              <li>Grants and donations</li>
+              <li>Advocacy and engagement with stakeholders</li>
+              <li>Resource mobilization and partnerships</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
   )
 }
-
