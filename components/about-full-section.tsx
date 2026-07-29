@@ -27,38 +27,40 @@ export function AboutFullSection() {
           className="w-full aspect-video rounded-lg"
         />
 
-        <div className="space-y-2">
-          <h3 className="text-xl sm:text-2xl font-semibold text-[#282828]">
-            Main Objective
-          </h3>
-          <ul className="list-disc pl-5 space-y-1 text-foreground text-base sm:text-lg leading-relaxed">
-            <li>Relief of poverty</li>
-            <li>Advancement of education</li>
-            <li>Promotion of health</li>
-            <li>Social welfare and community empowerment</li>
-          </ul>
-        </div>
+        <div className="grid lg:grid-cols-2 gap-8">
+          <div className="space-y-2">
+            <h3 className="text-xl sm:text-2xl font-semibold text-[#282828]">
+              Main Objective
+            </h3>
+            <ul className="list-disc pl-5 space-y-1 text-foreground text-base sm:text-lg leading-relaxed">
+              <li>Relief of poverty</li>
+              <li>Advancement of education</li>
+              <li>Promotion of health</li>
+              <li>Social welfare and community empowerment</li>
+            </ul>
+          </div>
 
-        <div className="space-y-2">
-          <h3 className="text-xl sm:text-2xl font-semibold text-[#282828]">
-            Specific Objectives
-          </h3>
-          <p className="text-foreground leading-relaxed">
-            The Foundation undertakes initiatives including:
-          </p>
-          <ul className="list-disc pl-5 space-y-1 text-foreground text-base sm:text-lg leading-relaxed">
-            <li>Poverty alleviation and welfare services</li>
-            <li>Clean water and sanitation projects</li>
-            <li>Access to healthcare services and supplies</li>
-            <li>Educational support and ICT access</li>
-            <li>Promotion of sustainable agriculture</li>
-            <li>Rehabilitation support programs</li>
-            <li>Assistance to vulnerable groups including the elderly, orphans, and persons with disabilities</li>
-            <li>Food aid and shelter provision</li>
-            <li>Grants and donations</li>
-            <li>Advocacy and engagement with stakeholders</li>
-            <li>Resource mobilization and partnerships</li>
-          </ul>
+          <div className="space-y-2">
+            <h3 className="text-xl sm:text-2xl font-semibold text-[#282828]">
+              Specific Objectives
+            </h3>
+            <p className="text-foreground leading-relaxed">
+              The Foundation undertakes initiatives including:
+            </p>
+            <ul className="list-disc pl-5 space-y-1 text-foreground text-base sm:text-lg leading-relaxed">
+              <li>Poverty alleviation and welfare services</li>
+              <li>Clean water and sanitation projects</li>
+              <li>Access to healthcare services and supplies</li>
+              <li>Educational support and ICT access</li>
+              <li>Promotion of sustainable agriculture</li>
+              <li>Rehabilitation support programs</li>
+              <li>Assistance to vulnerable groups including the elderly, orphans, and persons with disabilities</li>
+              <li>Food aid and shelter provision</li>
+              <li>Grants and donations</li>
+              <li>Advocacy and engagement with stakeholders</li>
+              <li>Resource mobilization and partnerships</li>
+            </ul>
+          </div>
         </div>
 
         {/* Image */}
@@ -75,7 +77,7 @@ export function AboutFullSection() {
         </div>
 
         <div className="space-y-2">
-          <h3 className="">Governance</h3>
+          <h3 className="text-xl sm:text-2xl font-semibold text-[#282828]">Governance</h3>
           <p className="text-foreground leading-relaxed">
             The Foundation is governed by a Board of Directors consisting of a minimum of five and a maximum of nine members, including Chairperson, Secretary, and Treasurer.
           </p>
@@ -85,7 +87,7 @@ export function AboutFullSection() {
         </div>
 
         <div className="space-y-3 pt-2">
-          <h3 className="">Focus Areas</h3>
+          <h3 className="text-xl sm:text-2xl font-semibold text-[#282828]">Focus Areas</h3>
           <div className="grid sm:grid-cols-2 gap-3">
             {[
               "Poverty Relief & Welfare Support",
