@@ -75,7 +75,7 @@ export function AboutFullSection() {
         </div>
 
         <div className="space-y-2">
-          <h3 className="font-semibold">Governance</h3>
+          <h3 className="">Governance</h3>
           <p className="text-foreground leading-relaxed">
             The Foundation is governed by a Board of Directors consisting of a minimum of five and a maximum of nine members, including Chairperson, Secretary, and Treasurer.
           </p>
@@ -85,7 +85,7 @@ export function AboutFullSection() {
         </div>
 
         <div className="space-y-3 pt-2">
-          <h3 className="text-[#282828]">Focus Areas</h3>
+          <h3 className="">Focus Areas</h3>
           <div className="grid sm:grid-cols-2 gap-3">
             {[
               "Poverty Relief & Welfare Support",
