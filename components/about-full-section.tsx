@@ -6,7 +6,7 @@ export function AboutFullSection() {
   return (
     <section id="about" className="py-16 sm:py-24 bg-background mt-10 sm:mt-0">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#282828] leading-tight">
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#282828] leading-tight mt-30">
           About MTCM Foundation
         </h2>
 
@@ -61,8 +61,21 @@ export function AboutFullSection() {
           </ul>
         </div>
 
+        {/* Image */}
+        <div className="relative">
+          <div className="aspect-4/3 rounded-lg overflow-hidden shadow-2xl">
+            <img
+              src="/about_full.avif"
+              alt="MTCM foundation"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          {/* Decorative element */}
+          <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-[#fe0000]/10 rounded-lg -z-10" />
+        </div>
+
         <div className="space-y-2">
-          <p className="font-semibold">Governance</p>
+          <h3 className="font-semibold">Governance</h3>
           <p className="text-foreground leading-relaxed">
             The Foundation is governed by a Board of Directors consisting of a minimum of five and a maximum of nine members, including Chairperson, Secretary, and Treasurer.
           </p>
@@ -72,7 +85,7 @@ export function AboutFullSection() {
         </div>
 
         <div className="space-y-3 pt-2">
-          <p className="text-[#282828] font-bold">Focus Areas</p>
+          <h3 className="text-[#282828]">Focus Areas</h3>
           <div className="grid sm:grid-cols-2 gap-3">
             {[
               "Poverty Relief & Welfare Support",
@@ -90,18 +103,7 @@ export function AboutFullSection() {
           </div>
         </div>
 
-        {/* Image */}
-        <div className="relative">
-          <div className="aspect-4/3 rounded-lg overflow-hidden shadow-2xl">
-            <img
-              src="/about_full.avif"
-              alt="MTCM foundation"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          {/* Decorative element */}
-          <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-[#fe0000]/10 rounded-lg -z-10" />
-        </div>
+        
       </div>
     </section>
   )
