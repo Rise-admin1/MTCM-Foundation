@@ -34,6 +34,12 @@ const footerLinks = {
       { label: "Accountability", href: "/resources" },
     ],
   },
+  support: {
+    title: "SUPPORT",
+    links: [
+      { label: "Support MTCM Foundation", href: "/contribute" },
+    ],
+  },
 }
 
 export function Footer() {
@@ -41,7 +47,7 @@ export function Footer() {
     <footer className="bg-[#282828] text-white">
       {/* Main footer content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-8">
           {/* ABOUT */}
           <div>
             <h3 className="font-bold text-lg mb-6">{footerLinks.about.title}</h3>
@@ -98,6 +104,23 @@ export function Footer() {
             <h3 className="font-bold text-lg mb-6">{footerLinks.resources.title}</h3>
             <ul className="space-y-3">
               {footerLinks.resources.links.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="text-gray-400 hover:text-[#fe0000] transition-colors text-sm"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* SUPPORT */}
+          <div>
+            <h3 className="font-bold text-lg mb-6">{footerLinks.support.title}</h3>
+            <ul className="space-y-3">
+              {footerLinks.support.links.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}

@@ -4,6 +4,7 @@ import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
+import { CheckoutProvider } from '@/components/checkout-provider'
 
 const mulish = Mulish({ 
   subsets: ["latin"],
@@ -48,9 +49,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${mulish.variable} font-sans antialiased`}>
-        <Header />
-        {children}
-        <Footer />
+        <CheckoutProvider>
+          <Header />
+          {children}
+          <Footer />
+        </CheckoutProvider>
         <Analytics />
       </body>
     </html>

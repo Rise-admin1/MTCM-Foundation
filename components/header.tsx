@@ -23,6 +23,7 @@ const navItems = [
     label: "RESOURCES",
     href: "/resources",
   },
+  { label: "SUPPORT", href: "/contribute" },
   { label: "CONTACT", href: "/contact" },
 ]
 
