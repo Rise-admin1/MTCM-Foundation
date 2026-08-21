@@ -6,9 +6,13 @@ import { BACKEND_URL, MTCM_PAYSTACK_PUBLIC_KEY } from '@/lib/backend'
 export function PaystackCardPanel({
   amount,
   onSuccess,
+  giftTier,
+  helperText,
 }: {
   amount: string
   onSuccess: () => void
+  giftTier?: string
+  helperText?: string
 }) {
   const [email, setEmail] = useState('')
   const [submitting, setSubmitting] = useState(false)
@@ -40,7 +44,11 @@ export function PaystackCardPanel({
       const response = await fetch(`${BACKEND_URL}/api/mtcm-foundation/paystack/initialize`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ amount: kes, email: email.trim() }),
+        body: JSON.stringify({
+          amount: kes,
+          email: email.trim(),
+          ...(giftTier ? { giftTier } : {}),
+        }),
       })
       const data = await response.json()
       if (!response.ok || !data.accessCode) {
@@ -107,7 +115,7 @@ export function PaystackCardPanel({
           onChange={(e) => setEmail(e.target.value)}
         />
         <p className="mt-2 text-xs text-muted-foreground">
-          Paystack needs an email for the receipt. Minimum 50 KES. Visa and Mastercard.
+          {helperText || 'Paystack needs an email for the receipt. Minimum 50 KES. Visa and Mastercard.'}
         </p>
       </div>
       {error && <p className="text-sm text-red-600">{error}</p>}

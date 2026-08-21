@@ -25,6 +25,7 @@ const footerLinks = {
     title: "MEMBERSHIP",
     links: [
       { label: "Membership Application Form", href: "/application" },
+      { label: "Membership Gift", href: "/membership-gift" },
     ],
   },
   resources: {
