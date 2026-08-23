@@ -17,20 +17,14 @@ export function GiftCheckoutDialog({
   onClose: () => void
 }) {
   const [method, setMethod] = useState<Method>('card')
-  const [cardMounted, setCardMounted] = useState(false)
   const [copied, setCopied] = useState(false)
   const [succeeded, setSucceeded] = useState(false)
 
   useEffect(() => {
     setMethod('card')
-    setCardMounted(false)
     setCopied(false)
     setSucceeded(false)
   }, [gift?.id])
-
-  useEffect(() => {
-    if (method === 'card') setCardMounted(true)
-  }, [method])
 
   const copyPayee = async () => {
     try {
@@ -104,14 +98,13 @@ export function GiftCheckoutDialog({
               <p className="mb-6 text-sm leading-relaxed text-[#282828]/80">
                 Please attempt Card. You can also easily write a cheque to MTCM Foundation.
               </p>
-              {cardMounted && (
-                <PaystackCardPanel
-                  amount={String(gift.amount)}
-                  giftTier={gift.id}
-                  helperText="Paystack needs an email for the receipt. Visa and Mastercard."
-                  onSuccess={() => setSucceeded(true)}
-                />
-              )}
+              <PaystackCardPanel
+                key={gift.id}
+                amount={String(gift.amount)}
+                giftTier={gift.id}
+                helperText="Paystack needs an email for the receipt. Visa and Mastercard."
+                onSuccess={() => setSucceeded(true)}
+              />
             </div>
 
             <div className={method === 'cheque' ? 'block' : 'hidden'}>

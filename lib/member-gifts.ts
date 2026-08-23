@@ -32,8 +32,8 @@ export const MEMBER_GIFTS: MemberGift[] = [
     id: 'legacy',
     title: 'Legacy member gift',
     amount: 6897630,
-    image: '/raila-portrait.jpg',
-    imageAlt: 'Geometric nail and string portrait of the late Rt. Hon. Raila Amollo Odinga',
+    image: '/artwork.jpeg',
+    imageAlt: 'Pin and thread portraits of President William Ruto and the late Rt. Hon. Raila Odinga',
   },
 ]
 
