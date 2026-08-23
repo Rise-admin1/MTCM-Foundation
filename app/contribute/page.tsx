@@ -1,11 +1,8 @@
 'use client'
 
-import { Button } from '@/components/ui/button'
-import { useCheckout } from '@/components/checkout-provider'
+import { ContributeCards } from '@/components/contribute-cards'
 
 export default function ContributePage() {
-  const { openCheckout } = useCheckout()
-
   return (
     <main className="min-h-screen">
       <section className="bg-background mt-10 py-16 sm:mt-0 sm:py-24">
@@ -20,14 +17,9 @@ export default function ContributePage() {
               its work in education, healthcare, poverty relief, community development, and creative
               livelihoods for young people.
             </p>
-            <Button
-              type="button"
-              onClick={openCheckout}
-              className="bg-[#fe0000] text-xs font-bold tracking-wider text-white uppercase hover:bg-[#cc0000]"
-            >
-              Contribute
-            </Button>
           </div>
+
+          <ContributeCards />
 
           <div className="space-y-6 max-w-3xl">
             <h2 className="text-2xl sm:text-3xl font-bold text-[#282828] leading-tight">
