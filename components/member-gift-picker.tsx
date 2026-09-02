@@ -10,7 +10,7 @@ export function MemberGiftPicker() {
 
   return (
     <>
-      <div className="grid gap-8 md:grid-cols-3">
+      <div className="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-8">
         {MEMBER_GIFTS.map((gift, index) => {
           const selected = selectedId === gift.id
           return (
@@ -36,15 +36,15 @@ export function MemberGiftPicker() {
                     <div className="h-full w-full bg-[#282828]/10" aria-hidden />
                   )}
                 </div>
-                <div className="p-6">
-                  <p className="text-xs font-bold uppercase tracking-widest text-[#fe0000]">
+                <div className="p-3 md:p-6">
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-[#fe0000] md:text-xs">
                     {gift.title}
                   </p>
-                  <p className="mt-1 text-lg font-bold text-[#282828]">{formatKes(gift.amount)}</p>
+                  <p className="mt-1 text-sm font-bold text-[#282828] md:text-lg">{formatKes(gift.amount)}</p>
                 </div>
               </button>
               {selected && (
-                <div className="space-y-3 border-t border-[#282828]/10 px-6 pb-6 pt-3">
+                <div className="space-y-3 border-t border-[#282828]/10 px-3 pb-3 pt-3 md:px-6 md:pb-6">
                   <p className="text-sm leading-relaxed text-foreground">
                     Card or cheque only. M-Pesa cannot process this amount.
                   </p>
