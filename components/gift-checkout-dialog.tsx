@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react'
 import { Check, Copy, X } from 'lucide-react'
 import { PaystackCardPanel } from '@/components/paystack-card-panel'
+import { PaymentMethodLogos } from '@/components/payment-method-logos'
 import { formatKes, type MemberGift } from '@/lib/member-gifts'
 
 type Method = 'card' | 'cheque'
@@ -74,24 +75,45 @@ export function GiftCheckoutDialog({
               </p>
             </div>
 
-            <div className="flex gap-2">
-              {([
-                { id: 'card', label: 'Card' },
-                { id: 'cheque', label: 'Cheque' },
-              ] as const).map((tab) => (
+            <div className="space-y-3">
+              <div className="flex gap-2">
                 <button
-                  key={tab.id}
                   type="button"
-                  onClick={() => setMethod(tab.id)}
-                  className={`flex-1 rounded-md border-2 py-3 text-xs font-bold uppercase tracking-widest transition-colors ${
-                    method === tab.id
-                      ? 'border-[#fe0000] bg-[#fe0000] text-white'
-                      : 'border-[#282828]/20 text-[#282828] hover:border-[#fe0000]'
-                  }`}
+                  disabled
+                  aria-disabled="true"
+                  title="M-Pesa is available but cannot be used at the moment"
+                  aria-label="M-Pesa is available but cannot be used at the moment"
+                  className="relative flex min-h-[3.5rem] flex-1 cursor-not-allowed overflow-hidden rounded-md border-2 border-[#282828]/20"
                 >
-                  {tab.label}
+                  <span className="absolute inset-0 bg-white/45" aria-hidden />
+                  <span className="relative z-[1] flex w-full flex-col items-center justify-center gap-1 px-1 py-2">
+                    <span className="text-xs font-bold uppercase tracking-widest text-[#282828]/55">
+                      M-Pesa
+                    </span>
+                    <span className="rounded bg-[#282828]/75 px-1.5 py-0.5 text-[7px] font-bold uppercase tracking-widest text-white">
+                      Unavailable
+                    </span>
+                  </span>
                 </button>
-              ))}
+                {([
+                  { id: 'card', label: 'Card' },
+                  { id: 'cheque', label: 'Cheque' },
+                ] as const).map((tab) => (
+                  <button
+                    key={tab.id}
+                    type="button"
+                    onClick={() => setMethod(tab.id)}
+                    className={`min-h-[3.5rem] flex-1 rounded-md border-2 py-3 text-xs font-bold uppercase tracking-widest transition-colors ${
+                      method === tab.id
+                        ? 'border-[#fe0000] bg-[#fe0000] text-white'
+                        : 'border-[#282828]/20 text-[#282828] hover:border-[#fe0000]'
+                    }`}
+                  >
+                    {tab.label}
+                  </button>
+                ))}
+              </div>
+              <PaymentMethodLogos />
             </div>
 
             <div className={method === 'card' ? 'block' : 'hidden'}>
