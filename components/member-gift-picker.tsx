@@ -11,14 +11,14 @@ export function MemberGiftPicker() {
   return (
     <>
       <div className="grid gap-8 md:grid-cols-3">
-        {MEMBER_GIFTS.map((gift) => {
+        {MEMBER_GIFTS.map((gift, index) => {
           const selected = selectedId === gift.id
           return (
             <div
               key={gift.id}
               className={`overflow-hidden rounded-lg bg-white shadow-md transition-shadow hover:shadow-xl ${
-                selected ? 'ring-2 ring-[#fe0000]' : ''
-              }`}
+                index === 3 ? 'md:col-start-2' : ''
+              } ${selected ? 'ring-2 ring-[#fe0000]' : ''}`}
             >
               <button
                 type="button"
