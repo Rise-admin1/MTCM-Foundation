@@ -6,7 +6,7 @@ import { PaystackCardPanel } from '@/components/paystack-card-panel'
 import { PaymentMethodLogos } from '@/components/payment-method-logos'
 import { formatKes, type MemberGift } from '@/lib/member-gifts'
 
-type Method = 'card' | 'cheque'
+type Method = 'mpesa' | 'card' | 'cheque'
 
 const CHEQUE_PAYEE = 'Michael Trufosa Clarice Mugenya Foundation'
 
@@ -77,25 +77,8 @@ export function GiftCheckoutDialog({
 
             <div className="space-y-3">
               <div className="flex gap-2">
-                <button
-                  type="button"
-                  disabled
-                  aria-disabled="true"
-                  title="M-Pesa is available but cannot be used at the moment"
-                  aria-label="M-Pesa is available but cannot be used at the moment"
-                  className="relative flex min-h-[3.5rem] flex-1 cursor-not-allowed overflow-hidden rounded-md border-2 border-[#282828]/20"
-                >
-                  <span className="absolute inset-0 bg-white/45" aria-hidden />
-                  <span className="relative z-[1] flex w-full flex-col items-center justify-center gap-1 px-1 py-2">
-                    <span className="text-xs font-bold uppercase tracking-widest text-[#282828]/55">
-                      M-Pesa
-                    </span>
-                    <span className="rounded bg-[#282828]/75 px-1.5 py-0.5 text-[7px] font-bold uppercase tracking-widest text-white">
-                      Unavailable
-                    </span>
-                  </span>
-                </button>
                 {([
+                  { id: 'mpesa', label: 'M-Pesa' },
                   { id: 'card', label: 'Card' },
                   { id: 'cheque', label: 'Cheque' },
                 ] as const).map((tab) => (
@@ -114,6 +97,15 @@ export function GiftCheckoutDialog({
                 ))}
               </div>
               <PaymentMethodLogos />
+            </div>
+
+            <div className={method === 'mpesa' ? 'block' : 'hidden'}>
+              <div
+                className="rounded-md border border-amber-300 bg-amber-50 p-4 text-sm font-medium text-amber-950"
+                role="status"
+              >
+                Amount too big for Mpesa
+              </div>
             </div>
 
             <div className={method === 'card' ? 'block' : 'hidden'}>
