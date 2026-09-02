@@ -10,27 +10,33 @@ export function MemberGiftPicker() {
 
   return (
     <>
-      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+      <div className="grid gap-8 md:grid-cols-3">
         {MEMBER_GIFTS.map((gift) => {
           const selected = selectedId === gift.id
           return (
             <div
               key={gift.id}
-              className={`rounded-lg border bg-white transition-shadow ${
-                selected ? 'border-[#fe0000] shadow-md' : 'border-[#282828]/10 shadow-sm'
+              className={`overflow-hidden rounded-lg bg-white shadow-md transition-shadow hover:shadow-xl ${
+                selected ? 'ring-2 ring-[#fe0000]' : ''
               }`}
             >
               <button
                 type="button"
                 onClick={() => setSelectedId(selected ? null : gift.id)}
-                className="flex w-full items-center gap-4 p-4 text-left"
+                className="w-full text-left"
               >
-                <img
-                  src={gift.image}
-                  alt={gift.imageAlt}
-                  className="h-16 w-16 shrink-0 rounded-md object-cover"
-                />
-                <div className="min-w-0 flex-1">
+                <div className="aspect-16/10 overflow-hidden bg-[#282828]/5">
+                  {gift.image ? (
+                    <img
+                      src={gift.image}
+                      alt={gift.imageAlt}
+                      className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
+                    />
+                  ) : (
+                    <div className="h-full w-full bg-[#282828]/10" aria-hidden />
+                  )}
+                </div>
+                <div className="p-6">
                   <p className="text-xs font-bold uppercase tracking-widest text-[#fe0000]">
                     {gift.title}
                   </p>
@@ -38,7 +44,7 @@ export function MemberGiftPicker() {
                 </div>
               </button>
               {selected && (
-                <div className="space-y-3 border-t border-[#282828]/10 px-4 pb-4 pt-3">
+                <div className="space-y-3 border-t border-[#282828]/10 px-6 pb-6 pt-3">
                   <p className="text-sm leading-relaxed text-foreground">
                     Card or cheque only. M-Pesa cannot process this amount.
                   </p>
