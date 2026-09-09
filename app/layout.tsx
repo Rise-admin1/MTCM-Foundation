@@ -13,6 +13,7 @@ const mulish = Mulish({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.mtcmfoundation.org'),
   icons: {
     icon: [{ url: '/MTCM.avif', type: 'image/png' }],
     apple: [{ url: '/MTCM.avif', type: 'image/png' }],
