@@ -12,6 +12,10 @@ const navItems = [
     href: "/membership",
   },
   {
+    label: "ABOUT",
+    href: "/about",
+  },
+  {
     label: "MEMBERSHIP GIFT",
     href: "/membership-gift",
   },
